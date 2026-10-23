@@ -1,93 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SITE } from "@/lib/data/site";
-import { LINKS } from "@/lib/data/site";
+import { LINKS, SITE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
+
+const SOCIAL_LINKS = [
+  { label: "IG", href: LINKS.instagramQuotes, tone: "border-[#d6a09c] text-[#f4d2cd]" },
+  { label: "LINE", href: LINKS.lineOA, tone: "border-[#a9cdb5] text-[#d7f0de]" },
+  { label: "YT", href: LINKS.youtube, tone: "border-[#d7a8a2] text-[#f5d7d2]" },
+];
 
 export default function HomePage() {
   return (
-    <main className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden bg-[#493d60] px-5 py-9 text-[#45362e] sm:px-8">
-      <Image
-        src={asset("/images/hero-cover.webp")}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
-      />
-      <div className="absolute inset-0 -z-10 bg-[#34263c]/[0.16]" aria-hidden />
+    <main className="relative isolate min-h-[100svh] overflow-hidden bg-[#161534] text-white">
+      <Image src={asset("/images/entry-gate-background.webp")} alt="小艾在星空中傳遞溫柔訊息" fill priority sizes="100vw" className="-z-20 object-cover object-center" />
+      <div className="absolute inset-0 -z-10 bg-[#12102f]/20" aria-hidden />
 
-      <section className="relative w-full max-w-[29rem] overflow-hidden rounded-[2rem] border border-white/55 bg-[#fffaf3]/[0.76] px-6 py-10 text-center shadow-[0_24px_80px_rgba(63,43,58,0.32)] backdrop-blur-md sm:px-10 sm:py-12">
-        <span className="absolute left-5 top-5 h-2.5 w-2.5 rounded-full bg-[#efac9c]" aria-hidden />
-        <span className="absolute left-9 top-5 h-2.5 w-2.5 rounded-full bg-[#f4c863]" aria-hidden />
-        <span className="absolute left-[3.25rem] top-5 h-2.5 w-2.5 rounded-full bg-[#9fcfc2]" aria-hidden />
-
-        <p className="mt-3 font-sans text-[11px] font-bold tracking-[0.34em] text-[#8a6d83]">
-          {SITE.brandEn.toUpperCase()} CREATIVE STUDIO
-        </p>
-        <h1 className="mt-4 font-serif text-4xl font-black tracking-[0.08em] text-[#4a382e] sm:text-5xl">
-          {SITE.brand}
-        </h1>
-        <div className="mx-auto mt-5 h-px w-20 bg-[#d9a39b]" />
-        <p className="mt-5 font-serif text-lg font-semibold leading-relaxed text-[#6d5856]">
-          {SITE.tagline}
-          <br />
-          {SITE.taglineSub}
-        </p>
-        <p className="mx-auto mt-5 max-w-sm text-sm leading-7 text-[#705f5b]">
-          用插畫、文字與溫柔的品牌視覺，
-          <br />
-          把每一個值得被記住的心意留下來。
-        </p>
-
-        <div className="mt-8 grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/portfolio"
-            className="rounded-full bg-[#745765] px-5 py-3.5 text-sm font-bold tracking-[0.14em] text-white shadow-[0_8px_18px_rgba(103,70,85,0.24)] transition hover:-translate-y-0.5 hover:bg-[#604652]"
-          >
-            瀏覽創作作品
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-full border border-[#b8847a] bg-white/65 px-5 py-3.5 text-sm font-bold tracking-[0.14em] text-[#76564d] transition hover:-translate-y-0.5 hover:bg-white"
-          >
-            洽談合作
-          </Link>
+      <section className="absolute inset-y-0 left-1/2 flex w-[min(82vw,25rem)] -translate-x-1/2 flex-col items-center justify-center border-x border-white/20 bg-[#1c193b]/45 px-6 text-center shadow-[0_0_50px_rgba(10,8,27,0.22)] backdrop-blur-[2px] sm:w-[22rem] sm:px-8">
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0f0d28]/45 to-transparent" aria-hidden />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0f0d28]/55 to-transparent" aria-hidden />
+        <div className="relative flex w-full flex-col items-center">
+          <span className="mb-4 text-xs font-semibold tracking-[0.42em] text-[#f3cf8c]">AIFEILER</span>
+          <h1 className="font-serif text-[2.65rem] font-black tracking-[0.16em] text-[#fff8eb] drop-shadow-[0_3px_12px_rgba(15,11,39,0.7)] sm:text-5xl">艾飛樂</h1>
+          <p className="mt-4 text-sm font-medium tracking-[0.22em] text-white/85">數位文創個人工作室</p>
+          <div className="my-7 h-px w-12 bg-[#efcc8b]" />
+          <p className="font-serif text-lg font-semibold leading-loose text-[#fff9ee] drop-shadow-[0_2px_10px_rgba(15,11,39,0.72)]">{SITE.tagline}<br />{SITE.taglineSub}</p>
+          <Link href="/about" className="mt-9 inline-flex min-w-52 items-center justify-center rounded-full border border-white/20 bg-[#51465a]/90 px-7 py-4 text-sm font-bold tracking-[0.18em] text-white shadow-[0_8px_20px_rgba(9,7,26,0.35)] transition hover:-translate-y-0.5 hover:bg-[#66566a]">瞭解更多</Link>
+          <nav aria-label="艾飛樂社群連結" className="mt-7 flex items-center justify-center gap-3">
+            {SOCIAL_LINKS.map((social) => (
+              <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={`前往艾飛樂 ${social.label}`} className={`grid h-12 w-12 place-items-center rounded-full border bg-[#231e45]/65 text-[11px] font-black tracking-tight shadow-[0_4px_12px_rgba(10,8,27,0.28)] transition hover:-translate-y-1 hover:bg-white/20 ${social.tone}`}>{social.label}</a>
+            ))}
+          </nav>
         </div>
-
-        <div className="mt-8 flex items-center justify-center gap-3">
-          <a
-            href={LINKS.instagramQuotes}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="前往艾飛樂 Instagram"
-            className="grid h-11 w-11 place-items-center rounded-full border border-[#d5a59a] bg-white/70 text-lg font-bold text-[#855b64] transition hover:-translate-y-0.5 hover:bg-[#ffe8e1]"
-          >
-            IG
-          </a>
-          <a
-            href={LINKS.lineOA}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="加入艾飛樂官方 LINE"
-            className="grid h-11 w-11 place-items-center rounded-full border border-[#91b39d] bg-white/70 text-[11px] font-black text-[#557b63] transition hover:-translate-y-0.5 hover:bg-[#e6f4e9]"
-          >
-            LINE
-          </a>
-          <a
-            href={LINKS.youtube}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="前往艾飛樂 YouTube"
-            className="grid h-11 w-11 place-items-center rounded-full border border-[#d6a08e] bg-white/70 text-[11px] font-black text-[#9a5547] transition hover:-translate-y-0.5 hover:bg-[#fff0eb]"
-          >
-            PLAY
-          </a>
-        </div>
-
-        <div className="mt-8 border-t border-[#d7b8af]/70 pt-5 text-xs tracking-[0.18em] text-[#987b72]">
-          ILLUSTRATION · VISUAL DESIGN · CUSTOM GIFTS
-        </div>
+        <p className="absolute bottom-8 text-[10px] tracking-[0.18em] text-white/55">ILLUSTRATION · STORIES · WARMTH</p>
       </section>
     </main>
   );
