@@ -1,13 +1,16 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Suspense } from "react";
 import { SITE } from "@/lib/data/site";
 import ReplayIntroButton from "@/components/ReplayIntroButton";
 
 function FooterInner() {
   const searchParams = useSearchParams();
+  const pathname = usePathname();
   if (searchParams.get("embed") === "1") return null;
+  if (pathname === "/") return null;
 
   return (
     <footer className="relative overflow-hidden bg-night-dark text-paper/90">

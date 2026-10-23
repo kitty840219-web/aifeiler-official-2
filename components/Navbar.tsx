@@ -17,6 +17,7 @@ function NavbarInner() {
   const [open, setOpen] = useState(false);
 
   if (searchParams.get("embed") === "1") return null;
+  if (pathname === "/") return null;
 
   return (
     <header className="sticky top-0 z-30 border-b border-paper/10 bg-night-dark">

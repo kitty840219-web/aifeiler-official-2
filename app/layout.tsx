@@ -7,9 +7,6 @@ import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import MainWrapper from "@/components/MainWrapper";
 import PageTransition from "@/components/PageTransition";
-import EntryGate from "@/components/EntryGate";
-import MeteorShower from "@/components/MeteorShower";
-import StarField from "@/components/StarField";
 import { LINKS, SITE } from "@/lib/data/site";
 import { asset } from "@/lib/basePath";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
@@ -94,9 +91,6 @@ export default function RootLayout({
         <Script id="view-mode-init" strategy="beforeInteractive">
           {VIEW_MODE_INIT_SCRIPT}
         </Script>
-        <EntryGate />
-        <StarField />
-        <MeteorShower />
         <Navbar />
         <MainWrapper>
           <PageTransition>{children}</PageTransition>

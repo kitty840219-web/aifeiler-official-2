@@ -29,6 +29,7 @@ function BottomNavInner() {
   const [justTapped, setJustTapped] = useState<string | null>(null);
 
   if (searchParams.get("embed") === "1") return null;
+  if (pathname === "/") return null;
 
   function handleTap(href: string) {
     playTwinkleSound();
