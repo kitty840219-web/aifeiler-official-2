@@ -3,8 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - claude/illustration-portfolio-website-uvlcuq
-      - claude/esim-phone-network-idg4ui
+      - main
   workflow_dispatch:
 
 permissions:
